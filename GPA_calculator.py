@@ -16,7 +16,7 @@ st.divider()
 col1, col2 = st.columns(2)
 
 with col1:
-    st.subheader("Основное обучение (5 лет)")
+    st.subheader("Обучение 5 лет")
     credits_5 = st.number_input(
         "Кредиты за 5 лет",
         min_value=0.0,
