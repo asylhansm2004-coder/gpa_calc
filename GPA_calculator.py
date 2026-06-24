@@ -2,11 +2,10 @@ import streamlit as st
 
 st.set_page_config(
     page_title="Калькулятор GPA",
-    page_icon="🎓",
     layout="centered",
 )
 
-st.title("🎓 Калькулятор средневзвешенного GPA")
+st.title("Калькулятор средневзвешенного GPA")
 st.markdown(
     "Введите данные за основное обучение и интернатуру — "
     "итоговый GPA считается автоматически."
@@ -58,12 +57,10 @@ if total_credits == 0:
     st.info("Введите кредиты и GPA, чтобы увидеть результат.")
 else:
     weighted_gpa = (credits_5 * gpa_5 + credits_int * gpa_int) / total_credits
-
     st.metric(
         label="Средневзвешенный GPA",
         value=f"{weighted_gpa:.4f}",
     )
-
     with st.expander("Показать расчёт"):
         st.latex(
             r"\text{GPA} = \frac{C_1 \times G_1 + C_2 \times G_2}{C_1 + C_2}"
@@ -72,6 +69,3 @@ else:
             f"({credits_5} × {gpa_5} + {credits_int} × {gpa_int}) "
             f"/ ({credits_5} + {credits_int}) = {weighted_gpa:.4f}"
         )
-
-st.divider()
-st.caption("Формула: ((Кредиты₁ × GPA₁) + (Кредиты₂ × GPA₂)) / (Кредиты₁ + Кредиты₂)")
